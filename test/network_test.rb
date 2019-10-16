@@ -31,6 +31,13 @@ class NetworkTest < Minitest::Test
     assert_equal [@knight_rider, @parks_and_rec], @nbc.shows
   end
 
+  def test_it_can_generate_array_of_all_characters
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    expected_array = [@michael_knight, @kitt, @leslie_knope, @ron_swanson]
+    assert_equal expected_array, @nbc.all_characters
+  end
+  
   def test_it_can_return_name_of_highest_paid_actor_among_all_shows
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)

@@ -10,6 +10,7 @@ class Network
     @shows << show
   end
 
+  # Helper method
   def all_characters
     @shows.collect_concat {|show| show.characters}
   end
