@@ -10,7 +10,18 @@ class Network
     @shows << show
   end
 
+  def all_characters
+    @shows.collect_concat {|show| show.characters}
+  end
+
   def highest_paid_actor
-    @shows.collect_concat {|show| show.characters}.max_by {|char| char.salary}.actor
+    all_characters.max_by {|char| char.salary}.actor
+  end
+
+  def payroll
+    all_characters.reduce({}) do |hash, char|
+      hash[char.actor] = char.salary
+      hash
+    end
   end
 end
