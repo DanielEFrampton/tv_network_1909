@@ -15,7 +15,7 @@ class CharacterTest < Minitest::Test
   def test_it_initializes_with_name_actor_and_salary
     assert_equal "KITT", @kitt.name
     assert_equal "William Daniels", @kitt.actor
-    assert_equal 1000000, @kitt.salary
+    assert_equal 1000000, @kitt.salary # Question for instructor: why did I not need to remove underscores?
   end
 
 end
