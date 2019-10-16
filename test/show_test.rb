@@ -22,7 +22,6 @@ class ShowTest < Minitest::Test
   end
 
   def test_it_can_return_total_salary_of_all_characters
-    require "pry"; binding.pry
     assert_equal 2600000, @knight_rider.total_salary
   end
 end
