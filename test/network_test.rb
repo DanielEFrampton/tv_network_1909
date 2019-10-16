@@ -31,9 +31,28 @@ class NetworkTest < Minitest::Test
     assert_equal [@knight_rider, @parks_and_rec], @nbc.shows
   end
 
+  def test_it_can_generate_array_of_all_characters
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    expected_array = [@michael_knight, @kitt, @leslie_knope, @ron_swanson]
+    assert_equal expected_array, @nbc.all_characters
+  end
+  
   def test_it_can_return_name_of_highest_paid_actor_among_all_shows
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
     assert_equal "Amy Poehler", @nbc.highest_paid_actor
+  end
+
+  def test_it_can_return_hash_of_payroll_with_actors_and_salaries
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    expected_hash = {
+                      "David Hasselhoff" => 1600000,
+                      "William Daniels" => 1000000,
+                      "Amy Poehler" => 2000000,
+                      "Nick Offerman" => 1400000
+                    }
+    assert_equal expected_hash, @nbc.payroll
   end
 end
